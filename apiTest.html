@@ -9,17 +9,17 @@
 <body>
   <!-- Retrieved data will be dumped here -->
   <div id="dataDump">
-    <h1 id="tacoName">
 
-    </h1>
   </div>
- 
- <h1id="beerName"> 
-<h2 id="beer">
-
-</h2>
-</h1>
 </body>
+UI
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    
+    // Things to accomplish:
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
@@ -53,17 +53,28 @@
       $("#beerName").append(JSON.stringify(response2[0].name));
       console.log(response2[0].name);
     })
+main
 
     //change to file
 
     
+  
     
+    // Create an AJAX call to retrieve data Log the data in console
+    var url = "http://taco-randomizer.herokuapp.com/random/";
+    // Log the data in HTML
+    $.ajax({
+    url: url,
+    method: "GET"
+    }).then(function(response){
+      console.log(response);
     
-  }
-  )
-//change in here
-
-</script>
+   $("#dataDump").append(JSON.stringify(response));
+    }
+    )
+    
+   
+  </script>
 
 </body>
 
