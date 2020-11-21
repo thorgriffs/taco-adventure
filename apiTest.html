@@ -9,57 +9,34 @@
 <body>
   <!-- Retrieved data will be dumped here -->
   <div id="dataDump">
-    <h1 id="tacoName">
 
-    </h1>
   </div>
- 
- <h1id="beerName"> 
-<h2 id="beer">
-
-</h2>
-</h1>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    
+    
+    // Things to accomplish:
 
 
-  // Things to accomplish:
-
-
-
-
-
-  // Create an AJAX call to retrieve data Log the data in console
-  var url1 = "http://taco-randomizer.herokuapp.com//random/?full-taco=true";
-  var url2 = "https://api.punkapi.com/v2/beers/random"
-  // Log the data in HTML
-  $.ajax({
-    url: url1,
-    method: "GET"
-  }).then(function (response) {
-    console.log(response);
-
+    
+  
+    
+    // Create an AJAX call to retrieve data Log the data in console
+    var url = "http://taco-randomizer.herokuapp.com/random/";
+    // Log the data in HTML
     $.ajax({
-      url: url2,
-      method: "GET"
-    }).then(function (response2) {
-      console.log(response2);
-      console.log(response2);
-      $("#dataDump").append(JSON.stringify(response));
-      $("#beer").append(JSON.stringify(response2));
-      $("#tacoName").append(JSON.stringify(response.slug));
-      $("#beerName").append(JSON.stringify(response2.name));
-    })
-
+    url: url,
+    method: "GET"
+    }).then(function(response){
+      console.log(response);
     
+   $("#dataDump").append(JSON.stringify(response));
+    }
+    )
     
-    
-  }
-  )
-
-
-</script>
+   
+  </script>
 
 </body>
 
