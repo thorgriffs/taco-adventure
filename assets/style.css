@@ -5,3 +5,29 @@
     
   }
 }
+
+.desktoptable {
+	margin:3%;
+	border: thin solid lightgray;
+	padding:3%;
+}
+
+h1 {
+	text-align: center;
+	color:white;
+	font-weight: 800;
+	font-size: 2.5em;
+}
+
+h2 {
+	text-align: center;
+	font-size:1.5em;
+	color:white;
+	font-weight: 400;
+}
+
+.is-ghost {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
