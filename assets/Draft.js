@@ -42,9 +42,9 @@ $("#buttonCombo").click(function() {
     }).then(function(response2) {
         var beer = response2[0];
 
-        $("#beerName").text("Beer: " + beer.Name);
+        $("#beerName").text("Beer: " + beer.name);
         $("#beerTag").text("Tagline: " + beer.tagline);
-        $("#beerDescription").text("Description: " + beer.desciption);            
+        $("#beerDescription").text("Description: " + beer.description);            
         $("#beerPic").attr("src", beer.image_url);
 
         // beerName = beer.name;
