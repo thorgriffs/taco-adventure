@@ -12,7 +12,7 @@
 
 // onclick event for the #buttonCombo "Make Suggestion" button
 $("#buttonCombo").click(function() {
-    var tacoURL = "https://taco-randomizer.herokuapp.com//random/?full-taco=true";
+    var tacoURL = "https://taco-randomizer.herokuapp.com/random/?full-taco=true";
     var beerURL = "https://api.punkapi.com/v2/beers/random"
     
        
