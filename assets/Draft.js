@@ -1,97 +1,115 @@
-// onclick event fot #buttonCombo
-    // ajax call to tacofancy
-        // determine datapoints to return
-        // return response data to html
-    // ajax call to punkapi
-        // determine datapoints to return
-        // return response data to html
+// defining global variables and constants
+var beer;
+var taco;
+var pairing;
+var savedPairings = [];
+const localStorageKey = "beerTaco";
 
-// API urls
-// var tacoURL = "https://taco-randomizer.herokuapp.com//random/?full-taco=true";
-// var beerURL = "https://api.punkapi.com/v2/beers/random"
+// retrieve from local storage
+retrieveSavedPairings();
+
+function retrieveSavedPairings() {
+    var beerTaco = localStorage.getItem(localStorageKey);
+    if (!beerTaco)
+        savedPairings = [];
+    else
+        savedPairings = JSON.parse(beerTaco);
+    for (var i = 0; i < savedPairings.length; i++) {
+        var pairingBtn = savedPairings[i];
+        addSavedPairing(pairingBtn);
+    }    
+    
+    console.log(beerTaco);
+}
 
 // onclick event for the #buttonCombo "Make Suggestion" button
 $("#buttonCombo").click(function() {
     var tacoURL = "https://taco-randomizer.herokuapp.com/random/?full-taco=true";
     var beerURL = "https://api.punkapi.com/v2/beers/random"
     
-       
-    $.ajax({
-        url: tacoURL,
-        method: "GET"
-    }).then(function(response) {
-        var taco = response;   
-        
-        tacoName = taco.name;
-        tacoURL = taco.url;
-
-        $("#tacoName").text("Taco Pairing: " + tacoName); 
-        $("#recipeLink").attr("href", tacoURL).text("Click here for recipe");
-        
-        console.log(taco);         	
-        // document.getElementById("viewTaco").innerHTML = ("Taco: " + taco.name);	
-        //console.log(taco.url)
-        //document.getElementById("recipeLink").innerHTML = (href= response.url);
-        
-        // showTaco(taco);
-    })        
-
+    // ajax call to PunkAPI
     $.ajax({
         url: beerURL,
         method: "GET"
-    }).then(function(response2) {
-        var beer = response2[0];
+    }).then(function(response) {
+        var response = response[0];
 
-        $("#beerName").text("Beer: " + beer.name);
-        $("#beerTag").text("Tagline: " + beer.tagline);
-        $("#beerDescription").text("Description: " + beer.description);            
-        $("#beerPic").attr("src", beer.image_url);
+        beer = {
+            beerName: response.name,
+            beerTag: response.tagline,
+            beerDesc: response.description,
+            beerPic: response.image_url
+        };
 
-        // beerName = beer.name;
-        // beerTag = beer.tagline;
-        // beerDescription = beer.description;
-        // beerPic = beer.image_url;
+        showBeer(beer);  
+    });
+    
+    // ajax call to TacoFancy API   
+    $.ajax({
+        url: tacoURL,
+        method: "GET"
+    }).then(function(response) {  
         
-        console.log(beer);
+        taco = {
+            tacoName: response.name,
+            tacoURL: response.url
+        };
         
-        // $("#viewTaco").append(JSON.stringify(response.recipe));
-        // $("#beer").append(JSON.stringify(response2));
-        // $("#tacoName").append(JSON.stringify(response.slug));
-        // $("#beerName").append(JSON.stringify(response2[0].name));
-        // document.getElementById("viewBeer").innerHTML = ("Beer: " + beer.name + " Tagline: " + beer.tagline + " Description: " + beer.description);
-        // console.log(beer.name);
-
-        // showBeer(beer);  
-    })
+        showTaco(taco);
+    });        
+    
 });
 
-// function showBeer(beer) {
-//     $("#beerName").text("Beer: " + beerName);
-//     $("#beerTag").text("Tagline: " + beerTag);
-//     $("#beerDescription").text("Description: " + beerDescription);            
-//     $("#beerPic").attr("src", beerPic);
-// }
+// display beer info in UI
+function showBeer(beer) {
+    $("#beerName").text("Beer: " + beer.beerName);
+    $("#beerTag").text("Tagline: " + beer.beerTag);
+    $("#beerDescription").text("Description: " + beer.beerDesc);            
+    $("#beerPic").attr("src", beer.beerPic);
+    console.log(beer);
+}
 
-// function showTaco(taco) {
-//     $("#tacoName").text("Taco Pairing: " + tacoName); 
-//     $("#recipeLink").attr("href", tacoURL).text("Click here for recipe");
-// }
+// display taco info in UI
+function showTaco(taco) {
+    $("#tacoName").text("Taco Pairing: " + taco.tacoName); 
+    $("#recipeLink").attr("href", taco.tacoURL).text("Click here for recipe");
+    console.log(taco);
+}
 
+
+// onclick of "Save Favorites" button
+$("#saveFaves").click(function() {
+    var pairing = {
+        beer: beer,
+        taco: taco,
+    };
+
+    savedPairings.push(pairing);
+        
+    console.log(pairing);  
+    console.log(savedPairings);
+    savePairing();
+    addSavedPairing(pairing);
+});
 
 //Save to local stroage
-$("#saveFaves").click(function(){
-    
-})
-//  retrieve from local storage
+function savePairing() {
+    localStorage.setItem(localStorageKey, JSON.stringify(savedPairings));
+}
 
-//  add local storage to html
+// add saved pairing to UI
+function addSavedPairing(pairingBtn) {
+    var showPairing = $("#savedPairings");
+    var showPairingBtn = $("<button>").attr({"type": "button", "class": "button is-small is-fullwidth is-success is-light is-outlined"});
+    showPairingBtn.text(pairingBtn.beer.beerName + " Beer" + " & " + pairingBtn.taco.tacoName);
+    showPairingBtn.click(function() {
+        showBeer(pairingBtn.beer);
+        showTaco(pairingBtn.taco);
+    });
 
-//
+    showPairing.prepend($("<br>")).prepend(showPairingBtn);
+}
 
 //  on click clear all  
 
 //  clear local storage
-
-//  
-
-//
