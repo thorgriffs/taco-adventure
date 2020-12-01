@@ -112,4 +112,9 @@ function addSavedPairing(pairingBtn) {
 
 //  on click clear all  
 
+$("#clear").click(function(){
+    localStorage.clear();
+    location.reload();
+})
+
 //  clear local storage
