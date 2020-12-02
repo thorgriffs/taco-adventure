@@ -5,15 +5,15 @@ This is an app for taco and beer lovers, with the click of a button they get the
 ## Task List
 - [x] Use a CSS framework other than Bootstrap (we chose Bulma).
 - [x] Be deployed to GitHub Pages.
-- [x]Accept and respond to user input - in this case we allow the user to generate items and to save/clear favorites.
-- [x]Use at least two server-side APIs (We used: https://taco-randomizer.herokuapp.com and https://api.punkapi.com/v2/beers/random.
+- [x] Accept and respond to user input - in this case we allow the user to generate items and to save/clear favorites.
+- [x] Use at least two server-side APIs (We used: https://taco-randomizer.herokuapp.com and https://api.punkapi.com/v2/beers/random.
 - [x] Does not use alerts, confirms, or prompts
 - [x] Use client-side storage to store persistent data.
 - [x] Be responsive.
-- [x]Have a polished UI.
+- [x] Have a polished UI.
 
 ## Presentation Requirements
-Project Presentation link: (https://docs.google.com/presentation/d/1_u8TKy5zW5UlrVQVnyDEZ0unGI2tjQPDEpA0FNuBKAw/edit?usp=sharing) 
+https://docs.google.com/presentation/d/14mVk7FsnK6fd44oD_sZRLlM75Zy7U7Mw5s1bnhLcLPg/edit?usp=sharing
 
 ## Preview of App
 
