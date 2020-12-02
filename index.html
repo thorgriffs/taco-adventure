@@ -6,6 +6,7 @@
     <title>Taco Adventure</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body>
     <div class="desktoptable">
@@ -19,11 +20,12 @@
 		    </div>
         </div>
         <div class="columns is-desktop">
-            <div class="column is-one-quarter is-gapless has-background-grey">
+            <div class="column is-one-quarter is-gapless has-background-light">
                 <img id="beerPic" style="height: 50%"/>                
             </div>
-            <div  class="column is-gapless has-background-grey">
-                <h3 class="container" id="beerName" style="font-weight: bold;">Beer:</h3>
+            <div  class="column is-gapless has-background-light">
+                
+                <h3 class="container"  style="font-weight: bold;"><i class="fas fa-beer"></i> <span id="beerName"> Beer:</span></h3>
                 <br/>
                 <h3 class="container" id="beerTag" style="font-weight: bold;">Tagline:</h3>
                 <br/>
@@ -31,18 +33,20 @@
                 <hr/>
                 <!-- <h3 id="viewTacoBeer"></h3>
                 <div id = "viewTaco" class="column is-three-fifths"> -->
-                <h3 class="container" id="tacoName" style="font-weight: bold;">Taco Pairing: </h3>
+                    
+                    <h3 class="container"  style="font-weight: bold;"><i class="fas fa-utensils"></i> <span id="tacoName"> Taco Pairing:</span> </h3>
                     <!--Taco will display here -->
                 <a id="recipeLink" target="_blank" style="font-weight: bold;"></a>
                 <hr>
                 <button id="saveFaves" class="button is-success">Save favorites</button><button id="clear" class="button is-info">Clear All</button>
                 
             </div>
-            <div class="column is-gapless has-background-grey">
-                <h3 class="container" style="font-weight: bold; font-size: large; text-align: center; display: inline-block">Saved Pairings</h3>
+            <div class="column is-gapless has-background-light">
+                <h3 class="container" style="font-weight: bold; font-size: large; text-align: center; display: inline-block"><i class="fas fa-handshake"></i> Saved Pairings</h3>
                 <div class="buttons" id="savedPairings">
 
                 </div>
+
           </div>        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
