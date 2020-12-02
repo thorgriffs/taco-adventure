@@ -1,3 +1,6 @@
+//style
+document.body.style.backgroundImage = "url('https://i.ibb.co/d4QkJ9M/phatt-taco-03.jpg')";
+
 // defining global variables and constants
 var beer;
 var taco;
@@ -100,7 +103,7 @@ function savePairing() {
 // add saved pairing to UI
 function addSavedPairing(pairingBtn) {
     var showPairing = $("#savedPairings");
-    var showPairingBtn = $("<button>").attr({"type": "button", "class": "button is-small is-fullwidth is-success is-light is-outlined"});
+    var showPairingBtn = $("<button>").attr({"type": "button", "class": "button is-small is-fullwidth is-success is-light is-outlined","style":"margin-top: 5px;"});
     showPairingBtn.text(pairingBtn.beer.beerName + " Beer" + " & " + pairingBtn.taco.tacoName);
     showPairingBtn.click(function() {
         showBeer(pairingBtn.beer);
@@ -111,5 +114,10 @@ function addSavedPairing(pairingBtn) {
 }
 
 //  on click clear all  
+
+$("#clear").click(function(){
+    localStorage.clear();
+    location.reload();
+})
 
 //  clear local storage
