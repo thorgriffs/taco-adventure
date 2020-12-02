@@ -1,3 +1,6 @@
+//style
+document.body.style.backgroundImage = "url('https://i.ibb.co/d4QkJ9M/phatt-taco-03.jpg')";
+
 // defining global variables and constants
 var beer;
 var taco;
