@@ -12,9 +12,9 @@ This is an app for taco and beer lovers, with the click of a button they get the
 - [x] Be responsive.
 - [x] Have a polished UI.
 
-## Presentation Requirements
+## Presentation Link
 https://docs.google.com/presentation/d/14mVk7FsnK6fd44oD_sZRLlM75Zy7U7Mw5s1bnhLcLPg/edit?usp=sharing
 
 ## Preview of App
 
-Screenshot will go here
+![Screencap of App](https://raw.githubusercontent.com/mdurst365/taco_adventure/main/assets/screencap.JPG)
